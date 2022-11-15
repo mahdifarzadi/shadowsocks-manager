@@ -159,14 +159,14 @@ const createUser = async (email, password, from = '') => {
 exports.signup = async (req, res) => {
   try {
     req.checkBody('email', 'Invalid email').isEmail();
-    req.checkBody('code', 'Invalid code').notEmpty();
+    // req.checkBody('code', 'Invalid code').notEmpty();
     req.checkBody('password', 'Invalid password').notEmpty();
     let type = 'normal';
     const validation = await req.getValidationResult();
     if(!validation.isEmpty()) { throw(validation.array()); }
     const email = req.body.email.toString().toLowerCase();
-    const code = req.body.code;
-    await emailPlugin.checkCode(email, code);
+    // const code = req.body.code;
+    // await emailPlugin.checkCode(email, code);
     await knex('user').count('id AS count').then(success => {
       if(!success[0].count) {
         type = 'admin';
@@ -721,54 +721,55 @@ exports.status = async (req, res) => {
 
 exports.sendCode = (req, res) => {
   const refCode = req.body.refCode;
-  req.checkBody('email', 'Invalid email').isEmail();
-  req.getValidationResult().then(result => {
-    if(result.isEmpty) { return; }
-    return Promise.reject('invalid email');
-  }).then(() => {
-    return knex('webguiSetting').select().where({
-      key: 'account',
-    })
-    .then(success => JSON.parse(success[0].value))
-    .then(success => {
-      if(success.signUp.isEnable) { return; }
-      if(refCode) {
-        return ref.checkRefCodeForSignup(refCode).then(success => {
-          if(success) { return; }
-          return Promise.reject('invalid ref code');
-        });
-      }
-      return Promise.reject('signup close');
-    });
-  }).then(() => {
-    return knex('webguiSetting').select().where({
-      key: 'mail',
-    }).then(success => {
-      if(!success.length) {
-        return Promise.reject('settings not found');
-      }
-      success[0].value = JSON.parse(success[0].value);
-      return success[0].value.code;
-    });
-  }).then(success =>{
-    const email = req.body.email.toString().toLowerCase();
-    const ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
-    const session = req.sessionID;
-    return emailPlugin.sendCode(email, success.title || 'ss验证码', success.content || '欢迎新用户注册，\n您的验证码是：', {
-      ip,
-      session,
-    });
-  }).then(success => {
-    res.send('success');
-  }).catch(err => {
-    logger.error(err);
-    const errorData = ['email in black list', 'send email out of limit', 'signup close', 'invalid ref code'];
-    if(errorData.indexOf(err) < 0) {
-      return res.status(403).end();
-    } else {
-      return res.status(403).end(err);
-    }
-  });
+  console.log("-------------ref code:", refCode)
+  // req.checkBody('email', 'Invalid email').isEmail();
+  // req.getValidationResult().then(result => {
+  //   if(result.isEmpty) { return; }
+  //   return Promise.reject('invalid email');
+  // }).then(() => {
+  //   return knex('webguiSetting').select().where({
+  //     key: 'account',
+  //   })
+  //   .then(success => JSON.parse(success[0].value))
+  //   .then(success => {
+  //     if(success.signUp.isEnable) { return; }
+  //     if(refCode) {
+  //       return ref.checkRefCodeForSignup(refCode).then(success => {
+  //         if(success) { return; }
+  //         return Promise.reject('invalid ref code');
+  //       });
+  //     }
+  //     return Promise.reject('signup close');
+  //   });
+  // }).then(() => {
+  //   return knex('webguiSetting').select().where({
+  //     key: 'mail',
+  //   }).then(success => {
+  //     if(!success.length) {
+  //       return Promise.reject('settings not found');
+  //     }
+  //     success[0].value = JSON.parse(success[0].value);
+  //     return success[0].value.code;
+  //   });
+  // }).then(success =>{
+  //   const email = req.body.email.toString().toLowerCase();
+  //   const ip = req.headers['x-real-ip'] || req.connection.remoteAddress;
+  //   const session = req.sessionID;
+  //   return emailPlugin.sendCode(email, success.title || 'ss验证码', success.content || '欢迎新用户注册，\n您的验证码是：', {
+  //     ip,
+  //     session,
+  //   });
+  // }).then(success => {
+  //   res.send('success');
+  // }).catch(err => {
+  //   logger.error(err);
+  //   const errorData = ['email in black list', 'send email out of limit', 'signup close', 'invalid ref code'];
+  //   if(errorData.indexOf(err) < 0) {
+  //     return res.status(403).end();
+  //   } else {
+  //     return res.status(403).end(err);
+  //   }
+  // });
 };
 
 exports.sendResetPasswordEmail = (req, res) => {

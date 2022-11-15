@@ -12,7 +12,7 @@
                         <div ng-message="email">{{ '必须填写一个有效邮箱地址' | translate }}</div>
                     </div>
                 </md-input-container>
-                <div layout="row">
+                <!-- <div layout="row">
                     <md-input-container class="md-block" flex="65">
                         <label>{{ '验证码' | translate }}</label>
                         <input type="text" required name="code" ng-model="user.code">
@@ -26,7 +26,7 @@
                             <md-button class="md-primary" ng-disabled="sendCodeTime || !user.email" ng-click="sendCode()" aria-label="send code"><span ng-if="sendCodeTime === 0">{{ '发送验证码' | translate }}</span><span ng-if="sendCodeTime > 0">{{ '已发送' | translate }}({{sendCodeTime}})</span></md-button>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div layout="row">
                     <md-input-container class="md-block" flex="65">
                         <label>{{ '密码' | translate }}</label>

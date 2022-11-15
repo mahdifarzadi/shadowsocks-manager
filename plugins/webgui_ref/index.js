@@ -37,6 +37,7 @@ const visitRefCode = async code => {
 };
 
 const checkRefCodeForSignup = async code => {
+  console.log("+++++++++++", code);
   const setting = await getRefSetting();
   if(!setting.useRef) { return false; }
   if(!setting.useWhenSignupClose) { return false; }
