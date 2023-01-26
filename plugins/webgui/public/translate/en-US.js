@@ -20,7 +20,7 @@ module.exports = {
   '密码不能为空': 'Password cannot be empty',
   '验证码已发至邮箱': 'A verification code has been sent to your email address',
   '用户注册成功':'Successfully registered.',
-  '确定': 'OK',
+  'confirm': 'OK',
   '取消': 'Cancel',
   '关闭': 'Close',
   '下一步': 'Next',
@@ -200,5 +200,5 @@ module.exports = {
   '取消': 'Cancel',
   '删除': 'Delete',
   '确认': 'Confirm',
-  '确定': 'Confirm',
+  'confirm': 'Confirm',
 };

@@ -6,7 +6,7 @@ app.factory('userSortDialog' , [ '$mdDialog', '$http', ($mdDialog, $http) => {
   const publicInfo = {};
   $http.get('/api/admin/group').then(success => {
     publicInfo.groups = success.data;
-    publicInfo.groups.unshift({ id: -1, name: '所有组', comment: '' });
+    publicInfo.groups.unshift({ id: -1, name: 'all groups', comment: '' });
   });
   const hide = () => {
     return $mdDialog.hide()

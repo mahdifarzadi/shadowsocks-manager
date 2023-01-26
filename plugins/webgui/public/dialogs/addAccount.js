@@ -99,7 +99,7 @@ app.factory('addAccountDialog', [ '$mdDialog', '$http', 'configManager', 'alertD
       }).then(success => {
         hide();
       }).catch(err => {
-        alertDialog.show('添加失败', '确定');
+        alertDialog.show('添加失败', 'confirm');
       });
     };
   };
@@ -156,9 +156,9 @@ app.factory('addAccountDialog', [ '$mdDialog', '$http', 'configManager', 'alertD
       accountId: publicInfo.giftcardAccountId === '0' ? null : +publicInfo.giftcardAccountId,
     }).then(result => {
       if(!result.data.success) {
-        alertDialog.show(result.data.message, '确定');
+        alertDialog.show(result.data.message, 'confirm');
       } else {
-        alertDialog.show('充值成功', '确定');
+        alertDialog.show('充值成功', 'confirm');
       }
     });
   };

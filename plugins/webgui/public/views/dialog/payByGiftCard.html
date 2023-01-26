@@ -19,13 +19,13 @@
     </md-dialog-content>
     <md-dialog-actions layout="row" layout-align="center center" ng-show="publicInfo.status !== 'loading'">
         <md-button class="md-primary" ng-click="publicInfo.submit()" ng-show="publicInfo.status === 'show'">
-            {{ '确定' | translate }}
+            {{ 'confirm' | translate }}
         </md-button>
         <md-button class="md-primary" ng-click="publicInfo.close()" ng-show="publicInfo.status === 'show'">
-            {{ '关闭' | translate }}
+            {{ 'close' | translate }}
         </md-button>
         <md-button class="md-primary" ng-click="publicInfo.close()" ng-show="publicInfo.status === 'finish'">
-            {{ '确定' | translate }}
+            {{ 'confirm' | translate }}
         </md-button>
     </md-dialog-actions>
 </md-dialog>

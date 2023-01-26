@@ -42,7 +42,7 @@ app.controller('AdminGiftCardController', ['$scope', '$http', 'addGiftCardBatchD
       });
     };
     $scope.showPassword = (id, password) => {
-      alertDialog.show(`卡号：${id}，密码：${password}`, '确定');
+      alertDialog.show(`卡号：${id}，密码：${password}`, 'confirm');
     };
     showDetails();
 

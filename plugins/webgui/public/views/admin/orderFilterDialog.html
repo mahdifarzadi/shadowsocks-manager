@@ -22,11 +22,11 @@
                     <md-checkbox ng-model="orderFilter.filter.FINISH">完成</md-checkbox>
                 </div>
                 <div flex>
-                    <md-checkbox ng-model="orderFilter.filter.TRADE_CLOSED">关闭</md-checkbox>
+                    <md-checkbox ng-model="orderFilter.filter.TRADE_CLOSED">close</md-checkbox>
                     <div></div>
                 </div>
                 <md-input-container ng-if="publicInfo.id === 1">
-                    <label>分组</label>
+                    <label>group</label>
                     <md-select ng-model="orderFilter.group">
                         <md-option ng-repeat="group in publicInfo.groups" ng-value="group.id">
                             {{ group.name }}
@@ -38,7 +38,7 @@
     </md-dialog-content>
     <md-dialog-actions layout="row">
         <md-button class="md-primary" ng-click="publicInfo.hide()">
-            确定
+            confirm
         </md-button>
     </md-dialog-actions>
 </md-dialog>

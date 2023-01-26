@@ -247,7 +247,7 @@ app
           });
         }
       }).catch(err => {
-        alertDialog.show(err, '确定');
+        alertDialog.show(err, 'confirm');
       });
     };
     $scope.enterKey = key => {
@@ -260,9 +260,9 @@ app
         return homeApi.findPassword($scope.user.email);
       })
       .then(success => {
-        alertDialog.show(success, '确定');
+        alertDialog.show(success, 'confirm');
       }).catch(err => {
-        alertDialog.show(err, '确定');
+        alertDialog.show(err, 'confirm');
       });
     };
     $scope.toSignupPage = () => {

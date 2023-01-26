@@ -121,7 +121,7 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
 ])
 .controller('AdminUserPageController', ['$scope', '$state', '$stateParams', '$http', 'editUserCommentDialog', 'adminApi', 'orderDialog', 'confirmDialog', 'emailDialog', 'addAccountDialog', 'setGroupDialog',
   ($scope, $state, $stateParams, $http, editUserCommentDialog, adminApi, orderDialog, confirmDialog, emailDialog, addAccountDialog, setGroupDialog) => {
-    $scope.setTitle('用户信息');
+    $scope.setTitle('User Info');
     $scope.setMenuButton('arrow_back', 'admin.user');
     const userId = $stateParams.userId;
     $scope.user = { username: '...' };
@@ -270,10 +270,10 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
       }, {
         timeout: 15000,
       }).then(success => {
-        alertDialog.show('添加用户成功', '确定');
+        alertDialog.show('添加用户成功', 'confirm');
         $state.go('admin.user');
       }).catch(() => {
-        alertDialog.show('添加用户失败', '确定');
+        alertDialog.show('添加用户失败', 'confirm');
       });
     };
     $scope.cancel = () => {

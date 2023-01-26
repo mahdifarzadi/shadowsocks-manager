@@ -540,10 +540,10 @@ app.controller('AdminAccountController', ['$scope', '$state', '$mdMedia', '$http
         server: $scope.account.server,
         user: $scope.account.user,
       }).then(success => {
-        alertDialog.show('添加账号成功', '确定');
+        alertDialog.show('添加账号成功', 'confirm');
         $state.go('admin.accountPage', { accountId: success.data.id });
       }).catch(() => {
-        alertDialog.show('添加账号失败', '确定');
+        alertDialog.show('添加账号失败', 'confirm');
       });
     };
     $scope.pickTime = () => {
@@ -721,10 +721,10 @@ app.controller('AdminAccountController', ['$scope', '$state', '$mdMedia', '$http
         multiServerFlow: $scope.account.multiServerFlow ? 1 : 0,
         server: $scope.account.server,
       }).then(success => {
-        alertDialog.show('修改账号成功', '确定');
+        alertDialog.show('修改账号成功', 'confirm');
         $state.go('admin.accountPage', { accountId: $stateParams.accountId });
       }).catch(() => {
-        alertDialog.show('修改账号失败', '确定');
+        alertDialog.show('修改账号失败', 'confirm');
       });
     };
     $scope.pickTime = () => {

@@ -104,10 +104,10 @@ app.controller('AdminGroupSettingController', ['$scope', '$http', '$state',
     }, {
       timeout: 15000,
     }).then(success => {
-      alertDialog.show('添加群组成功', '确定');
+      alertDialog.show('添加群组成功', 'confirm');
       $state.go('admin.groupSetting');
     }).catch(() => {
-      alertDialog.show('添加群组失败', '确定');
+      alertDialog.show('添加群组失败', 'confirm');
     });
   };
   $scope.cancel = () => {
@@ -209,10 +209,10 @@ app.controller('AdminGroupSettingController', ['$scope', '$http', '$state',
     }, {
       timeout: 15000,
     }).then(success => {
-      alertDialog.show('Modify group successfully', '确定');
+      alertDialog.show('Modify group successfully', 'confirm');
       $state.go('admin.groupSetting');
     }).catch(() => {
-      alertDialog.show('Failed to edit group', '确定');
+      alertDialog.show('Failed to edit group', 'confirm');
     });
   };
   $scope.cancel = () => {
@@ -223,10 +223,10 @@ app.controller('AdminGroupSettingController', ['$scope', '$http', '$state',
     $http.delete(`/api/admin/group/${ $scope.groupId }`, {
       timeout: 15000,
     }).then(success => {
-      alertDialog.show('Group deleted successfully', '确定');
+      alertDialog.show('Group deleted successfully', 'confirm');
       $state.go('admin.groupSetting');
     }).catch(() => {
-      alertDialog.show('Failed to delete group', '确定');
+      alertDialog.show('Failed to delete group', 'confirm');
     });
   };
   $scope.setGroupNotice = () => {

@@ -8,7 +8,7 @@ app.filter('order', function () {
       TRADE_SUCCESS: '付款',
       FINISH: '完成',
       USED: '完成',
-      TRADE_CLOSED: '关闭',
+      TRADE_CLOSED: 'close',
       created: '创建',
       approved: '付款',
       finish: '完成',

@@ -276,7 +276,7 @@ app.controller('AdminSettingsController', ['$scope', '$state',
     $scope.confirm = () => {
       alertDialog.loading();
       adminApi.changePassword($scope.data.password, $scope.data.newPassword).then(success => {
-        alertDialog.show('修改密码成功，请重新登录', '确定')
+        alertDialog.show('修改密码成功，请重新登录', 'confirm')
         .then(() => {
           return $http.post('/api/home/logout');
         }).then(() => {
@@ -285,7 +285,7 @@ app.controller('AdminSettingsController', ['$scope', '$state',
           $state.go('home.index');
         });
       }).catch(err => {
-        alertDialog.show('修改密码失败', '确定');
+        alertDialog.show('修改密码失败', 'confirm');
       });
     };
   }
@@ -683,7 +683,7 @@ app.controller('AdminSettingsController', ['$scope', '$state',
       .then(success => {
         $state.go('admin.refUserList');
       }).catch(err => {
-        alertDialog.show('添加失败', '确定');
+        alertDialog.show('添加失败', 'confirm');
       });
     };
     $scope.cancel = () => {
