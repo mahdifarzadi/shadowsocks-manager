@@ -195,6 +195,7 @@ module.exports = {
   '流量倍率': 'Traffic Multiplier',
   '端口偏移': 'Port Shift',
   '插件参数': 'Plugin Parameters',
+  '允许购买多个账号': 'Multiple account purchases allowed',
 
   '取消': 'Cancel',
   '删除': 'Delete',
