@@ -12,7 +12,7 @@ app.factory('homeApi', ['$http', $http => {
     .catch(err => {
       if(err.status === 403) {
         let errData = '用户注册失败';
-        if(err.data === 'user exists') { errData = '该用户已存在'; }
+        if(err.data === 'user exists') { errData = 'the user already exists'; }
         return Promise.reject(errData);
       } else {
         return Promise.reject('网络异常，请稍后再试');

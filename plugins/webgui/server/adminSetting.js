@@ -4,6 +4,10 @@ const ref = appRequire('plugins/webgui_ref/index');
 const refAdmin = appRequire('plugins/webgui_ref/admin');
 const refUser = appRequire('plugins/webgui_ref/user');
 
+const defaultFlow = 30000;
+const defaultType = 4; // day
+const defaultLimit = 1;
+
 const setDefaultValue = (key, value) => {
   knex('webguiSetting').select().where({
     key,
@@ -17,12 +21,12 @@ const setDefaultValue = (key, value) => {
     });
   }).then();
 };
-setDefaultValue('account', {
+setDefaultValue('account', { // default trafic
   accountForNewUser: {
     isEnable: true,
-    flow: 350,
-    type: 5,
-    limit: 8,
+    flow: defaultFlow,
+    type: defaultType,
+    limit: defaultLimit,
   },
   signUp: {
     isEnable: true,
