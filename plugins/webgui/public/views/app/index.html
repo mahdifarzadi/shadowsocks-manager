@@ -26,7 +26,7 @@
     <md-list-item ng-if="account.id && isInit">
       <div class="md-list-item-text" style="width: 100%;" layout="row" layout-wrap layout-align="space-between center">
         <div flex="100" layout="row" layout-align="space-between center">
-          <div>流量</div>
+          <div>flow</div>
           <div ng-show="account.data && account.data.flow">{{ currentFlow | flow }} /
             {{ account.data.flow + account.data.flowPack | flow }}</div>
           <div ng-show="!account.data || !account.data.flow">{{ currentFlow | flow }} / ∞</div>

@@ -222,12 +222,12 @@ exports.getSubscribeAccountForUser = async (req, res) => {
       const insert = { 
         ...template,
         subscribeName: remain <= 0
-                      ? '已过期'
+                      ? 'expired'
                       : remain >= 48 * 3600 * 1000
-                      ? moment(expire).format('YYYY-MM-DD过期')
+                      ? moment(expire).format('YYYY-MM-DDExpired')
                       : remain >= 3600 * 1000
-                      ? `${Math.floor(remain / (3600 * 1000))}小时后过期`
-                      : `${Math.floor(remain / (60 * 1000))}分钟后过期`,
+                      ? `${Math.floor(remain / (3600 * 1000))}expires in hours`
+                      : `${Math.floor(remain / (60 * 1000))}expires in minutes`,
       };
 
       const insertFlow = { ...template };

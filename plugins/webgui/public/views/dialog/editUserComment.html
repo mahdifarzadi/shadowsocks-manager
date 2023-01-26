@@ -19,7 +19,7 @@
   </md-dialog-content>
   <md-dialog-actions layout="row" layout-align="center center" ng-if="publicInfo.status !== 'loading'">
       <md-button class="md-primary" ng-click="publicInfo.close()" ng-if="publicInfo.status === 'show'">
-          {{ '取消' | translate }}
+          {{ 'cancel' | translate }}
       </md-button>
       <md-button class="md-primary" ng-click="publicInfo.editComment()" ng-if="publicInfo.status === 'show'">
           {{ '保存' | translate }}

@@ -146,10 +146,10 @@ const createUser = async (email, password, from = '') => {
     }
   }
   logger.info(`[${ email }] signup success`);
-  push.pushMessage('注册', {
-    body: `${ from }用户[ ${ email.toString().toLowerCase() } ]注册成功`,
+  push.pushMessage('Sign up', {
+    body: `${ from }用户[ ${ email.toString().toLowerCase() } ]Sign up成功`,
   });
-  isTelegram && telegram.push(`${ from }用户[ ${ email.toString().toLowerCase() } ]注册成功`);
+  isTelegram && telegram.push(`${ from }用户[ ${ email.toString().toLowerCase() } ]Sign up成功`);
   return {
     id: userId,
     type: 'normal',
@@ -232,10 +232,10 @@ exports.signup = async (req, res) => {
       }
     }
     logger.info(`[${ req.body.email }] signup success`);
-    push.pushMessage('注册', {
-      body: `用户[ ${ req.body.email.toString().toLowerCase() } ]注册成功`,
+    push.pushMessage('Sign up', {
+      body: `用户[ ${ req.body.email.toString().toLowerCase() } ]Sign up成功`,
     });
-    isTelegram && telegram.push(`用户[ ${ req.body.email.toString().toLowerCase() } ]注册成功`);
+    isTelegram && telegram.push(`用户[ ${ req.body.email.toString().toLowerCase() } ]Sign up成功`);
     res.send(type);
   } catch(err) {
     logger.error(`[${ req.body.email }] signup fail: ${ err }`);
@@ -322,7 +322,7 @@ exports.googleLogin = async (req, res) => {
       if(user) {
         req.session.user = user.id;
         req.session.type = user.type;
-        logger.info(`Google用户[${email}]登录`);
+        logger.info(`Google用户[${email}]Sign in`);
         return res.send({ id: user.id, type: user.type });
       } else {
         const password = Math.random().toString();
@@ -417,7 +417,7 @@ exports.facebookLogin = async (req, res) => {
       if(user) {
         req.session.user = user.id;
         req.session.type = user.type;
-        logger.info(`Facebook用户[${email}]登录`);
+        logger.info(`Facebook用户[${email}]Sign in`);
         return res.send({ id: user.id, type: user.type });
       } else {
         const password = Math.random().toString();
@@ -482,7 +482,7 @@ exports.githubLogin = async (req, res) => {
       if(user) {
         req.session.user = user.id;
         req.session.type = user.type;
-        logger.info(`Github用户[${email}]登录`);
+        logger.info(`Github用户[${email}]Sign in`);
         return res.send({ id: user.id, type: user.type });
       } else {
         const password = Math.random().toString();
@@ -552,7 +552,7 @@ exports.twitterLogin = async (req, res) => {
     if(user) {
       req.session.user = user.id;
       req.session.type = user.type;
-      logger.info(`Twitter用户[${email}]登录`);
+      logger.info(`Twitter用户[${email}]Sign in`);
       return res.send({ id: user.id, type: user.type });
     } else {
       const password = Math.random().toString();
@@ -721,7 +721,7 @@ exports.status = async (req, res) => {
 
 exports.sendCode = (req, res) => {
   const refCode = req.body.refCode;
-  console.log("-------------ref code:", refCode)
+  console.log("-------------ref code:", refCode);
   // req.checkBody('email', 'Invalid email').isEmail();
   // req.getValidationResult().then(result => {
   //   if(result.isEmpty) { return; }

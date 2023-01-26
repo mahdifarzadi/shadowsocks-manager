@@ -1,7 +1,7 @@
 <div layout="column" hide-gt-sm>
-    <div flex="15" style="height: 40px;"></div>
+    <div style="height: 40px;"></div>
     <div flex layout="row">
-        <div flex="10" flex-gt-sm="30"></div>
+        <div></div>
         <div flex layout="column" layout-align="space-around stretch">
             <form name="userForm">
                 <md-input-container class="md-block">
@@ -29,7 +29,7 @@
                 </div> -->
                 <div layout="row">
                     <md-input-container class="md-block" flex="65">
-                        <label>{{ '密码' | translate }}</label>
+                        <label>{{ 'password' | translate }}</label>
                         <input type="password" required name="password" ng-model="user.password">
                         <div ng-messages="userForm.password.$error">
                             <div ng-message="required">{{ '密码不能为空' | translate }}</div>
@@ -38,7 +38,7 @@
                     <div flex layout="row" layout-align="space-between center">
                         <div flex="5"></div>
                         <div style="margin-bottom: 25px;">
-                            <md-button class="md-raised md-primary" ng-disabled="!user.email || !user.code || !user.password" ng-click="signup()">{{ '注册' | translate }}</md-button>
+                            <md-button class="md-raised md-primary" ng-disabled="!user.email || !user.code || !user.password" ng-click="signup()">{{ 'Sign up' | translate }}</md-button>
                         </div>
                     </div>
                 </div>
@@ -50,16 +50,16 @@
                 </div>
             </form>
         </div>
-        <div flex="10" flex-gt-sm="30"></div>
+        <div></div>
     </div>
     <div layout="row" layout-align="center center" ng-if="home.refId && !home.refIdValid">
-        <div flex="10" flex-gt-sm="30"></div>
+        <div></div>
         <div flex>
             <div layout="row" layout-align="center center">
                 <div style="color: #bbb;">{{ '邀请码' | translate }} [{{ home.refId }}] {{ '无效' | translate }}</div>
             </div>
         </div>
-        <div flex="10" flex-gt-sm="30"></div>
+        <div></div>
     </div>
 </div>
 <div layout="column" hide-xs hide-sm>
@@ -102,7 +102,7 @@
                               </div>
                               <div layout="row">
                                   <md-input-container class="md-block" flex="65">
-                                      <label>{{ '密码' | translate }}</label>
+                                      <label>{{ 'password' | translate }}</label>
                                       <input type="password" required name="password" ng-model="user.password">
                                       <div ng-messages="userForm.password.$error">
                                           <div ng-message="required">{{ '密码不能为空' | translate }}</div>
@@ -111,7 +111,7 @@
                                   <div flex layout="row" layout-align="space-between center">
                                       <div flex="5"></div>
                                       <div style="margin-bottom: 25px;">
-                                          <md-button class="md-raised md-primary" ng-disabled="!user.email || !user.code || !user.password" ng-click="signup()">{{ '注册' | translate }}</md-button>
+                                          <md-button class="md-raised md-primary" ng-disabled="!user.email || !user.code || !user.password" ng-click="signup()">{{ 'Sign up' | translate }}</md-button>
                                       </div>
                                   </div>
                               </div>

@@ -30,7 +30,7 @@ app.controller('AdminNoticeController', ['$scope', '$http', '$state', ($scope, $
   $scope.delete = () => {
     confirmDialog.show({
       text: '真的要删除公告吗？',
-      cancel: '取消',
+      cancel: 'cancel',
       confirm: '删除',
       error: '删除公告失败',
       fn: function () { return $http.delete('/api/admin/notice/' + $stateParams.noticeId); },

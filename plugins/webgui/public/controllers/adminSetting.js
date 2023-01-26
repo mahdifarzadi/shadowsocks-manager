@@ -316,13 +316,13 @@ app.controller('AdminSettingsController', ['$scope', '$state',
     $scope.setMenuButton('arrow_back', 'admin.settings');
     $scope.time = [{
       id: 'hour',
-      name: '小时',
+      name: 'Hour',
     }, {
       id: 'day',
-      name: '天',
+      name: 'Day',
     }, {
       id: 'week',
-      name: '周',
+      name: 'week',
     }, {
       id: 'month',
       name: '月',
@@ -348,11 +348,11 @@ app.controller('AdminSettingsController', ['$scope', '$state',
     $scope.paymentTypeName = type => {
       switch(type) {
         case 'hour':
-          return '小时'; break;
+          return 'Hour'; break;
         case 'day':
-          return '天'; break;
+          return 'Day'; break;
         case 'week':
-          return '周'; break;
+          return 'week'; break;
         case 'month':
           return '月'; break;
         case 'season':

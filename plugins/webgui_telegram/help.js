@@ -27,7 +27,7 @@ telegram.on('message', async message => {
   if(userStatus.status === 'empty') {
     tg.sendKeyboard(`欢迎使用 ${ title }，\n\n请在这里输入您的邮箱以接收验证码来注册账号\n\n或者点击以下按钮访问网页版`, telegramId, {
       inline_keyboard: [[{
-        text: '登录网页版',
+        text: 'Sign in网页版',
         url: site,
       }]],
     });

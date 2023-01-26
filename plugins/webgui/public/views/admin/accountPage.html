@@ -95,7 +95,7 @@
                             <md-divider></md-divider>
                             <md-list-item>
                                 <div flex layout="row" layout-align="space-between center">
-                                    <div flex="40" translate>流量倍率：</div><div flex="60" style="text-align:right">{{ server.scale }}</div>
+                                    <div flex="40" translate>server.scale:</div><div flex="60" style="text-align:right">{{ server.scale }}</div>
                                 </div>
                             </md-list-item>
                             <md-divider></md-divider>
@@ -146,9 +146,9 @@
                     <div flex-lg="10"></div>
                     <div flex="70" flex-md="80" flex-sm="100" flex-xs="100">
                         <md-button class="md-primary" ng-click="subscribe(account.id)" ng-if="config.subscribe">{{ '订阅链接' | translate }}</md-button>
-                        <md-button ng-show="isSS(server)" class="md-primary" ng-click="showQrcodeDialog(server, account)">{{ '账号二维码' | translate }}</md-button>
-                        <md-button ng-show="isWG(server)" class="md-primary" ng-click="showWireGuard(server, account)">{{ '账号二维码' | translate }}</md-button>
-                        <md-button ng-show="isTJ(server)" class="md-primary" ng-click="showQrcodeDialog(server, account)">{{ '账号二维码' | translate }}</md-button>
+                        <md-button ng-show="isSS(server)" class="md-primary" ng-click="showQrcodeDialog(server, account)">{{ 'account QR code' | translate }}</md-button>
+                        <md-button ng-show="isWG(server)" class="md-primary" ng-click="showWireGuard(server, account)">{{ 'account QR code' | translate }}</md-button>
+                        <md-button ng-show="isTJ(server)" class="md-primary" ng-click="showQrcodeDialog(server, account)">{{ 'account QR code' | translate }}</md-button>
                     </div>
                     <div flex-lg="10"></div>
                 </div>
@@ -157,9 +157,9 @@
                         <div layout="column" layout-align="center center">
                             <div layout="row" layout-align="center center" style="margin-bottom: 15px;">
                                 <md-radio-group ng-model="flowType.value" ng-change="getChartData(server.id)" layout="row" layout-align="center center">
-                                    <md-radio-button value="hour">时</md-radio-button>
-                                    <md-radio-button value="day" >天</md-radio-button>
-                                    <md-radio-button value="week">周</md-radio-button>
+                                    <md-radio-button value="hour">Hour</md-radio-button>
+                                    <md-radio-button value="day" >Day</md-radio-button>
+                                    <md-radio-button value="week">week</md-radio-button>
                                 </md-radio-group>
                             </div>
                             <div>

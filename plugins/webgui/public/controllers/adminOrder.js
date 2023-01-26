@@ -40,10 +40,10 @@ app
     $scope.setMenuButton('arrow_back', 'admin.order');
 
     $scope.typeList = [
-      { key: '周', value: 2 },
+      { key: 'week', value: 2 },
       { key: '月', value: 3 },
-      { key: '天', value: 4 },
-      { key: '小时', value: 5 },
+      { key: 'Day', value: 4 },
+      { key: 'Hour', value: 5 },
     ];
     $scope.order = {
       orderType: 'normal',
@@ -188,10 +188,10 @@ app
       autoRemove: false,
     };
     $scope.typeList = [
-      {key: '周', value: 2},
+      {key: 'week', value: 2},
       {key: '月', value: 3},
-      {key: '天', value: 4},
-      {key: '小时', value: 5},
+      {key: 'Day', value: 4},
+      {key: 'Hour', value: 5},
     ];
 
     $scope.orderId = $stateParams.id;
@@ -280,7 +280,7 @@ app
     $scope.delete = () => {
       confirmDialog.show({
         text: '真的要删除此订单吗？',
-        cancel: '取消',
+        cancel: 'cancel',
         confirm: '删除',
         error: '删除订单失败',
         useFnErrorMessage: true,

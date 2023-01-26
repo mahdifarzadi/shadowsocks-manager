@@ -238,7 +238,7 @@ telegram.on('message', async message => {
       userId: +userId,
       time: Date.now(),
     };
-    tg.sendKeyboard('登录', telegramId, {
+    tg.sendKeyboard('Sign in', telegramId, {
       inline_keyboard: [[{
         text: '点击这里登录网页版',
         url: `${ config.plugins.webgui.site }/home/login/telegram/${ token }`

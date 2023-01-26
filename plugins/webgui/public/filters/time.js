@@ -17,10 +17,10 @@ app.filter('timeago', function() {
     const hour = Math.trunc(time % (24 * 3600 * 1000) / (3600 * 1000));
     const minute = Math.trunc(time % (24 * 3600 * 1000) % (3600 * 1000) / (60 * 1000));
     if (day) {
-      ret += day + '天';
+      ret += day + 'Day';
     }
     if (day || hour) {
-      ret += hour + '小时';
+      ret += hour + 'Hour';
     }
     if (!day && (hour || minute)) {
       ret += minute + '分钟';
@@ -54,9 +54,9 @@ app.filter('timeagoshort', function() {
     const hour = Math.trunc(time % (24 * 3600 * 1000) / (3600 * 1000));
     const minute = Math.trunc(time % (24 * 3600 * 1000) % (3600 * 1000) / (60 * 1000));
     if (day) {
-      ret += day + '天';
+      ret += day + 'Day';
     } else if (hour) {
-      ret += hour + '小时';
+      ret += hour + 'Hour';
     } else if (minute) {
       ret += minute + '分钟';
     } else if (time < (60 * 1000)) {
@@ -72,8 +72,8 @@ app.filter('translateTime', ['$translate', $translate => {
     if(currentLanguage === 'zh-CN') {
       return input;
     } else if (currentLanguage === 'en-US') {
-      const matchDay = input.match(/([0-9]){1,}天/);
-      const matchHour = input.match(/([0-9]){1,}小时/);
+      const matchDay = input.match(/([0-9]){1,}Day/);
+      const matchHour = input.match(/([0-9]){1,}Hour/);
       const matchMinute = input.match(/([0-9]){1,}分/);
       let ret = '';
       if(matchDay) {
@@ -107,10 +107,10 @@ app.filter('timePeriod', [() => {
     const hour = Math.trunc(time % (24 * 3600 * 1000) / (3600 * 1000));
     const minute = Math.trunc(time % (24 * 3600 * 1000) % (3600 * 1000) / (60 * 1000));
     if (day) {
-      ret += day + '天';
+      ret += day + 'Day';
     }
     if (day || hour) {
-      ret += hour + '小时';
+      ret += hour + 'Hour';
     }
     if (!day && (hour || minute)) {
       ret += minute + '分钟';

@@ -26,7 +26,7 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
       }
     };
     $scope.menus = [{
-      name: '首页',
+      name: 'Home',
       icon: 'home',
       click: 'admin.index',
     }, {
@@ -183,7 +183,7 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
 ])
 .controller('AdminIndexController', ['$scope', '$state', 'adminApi', '$localStorage', '$interval', 'orderDialog',
   ($scope, $state, adminApi, $localStorage, $interval, orderDialog) => {
-    $scope.setTitle('首页');
+    $scope.setTitle('Home');
     if($localStorage.admin.indexInfo) {
       $scope.signupUsers = $localStorage.admin.indexInfo.data.signup;
       $scope.loginUsers = $localStorage.admin.indexInfo.data.login;

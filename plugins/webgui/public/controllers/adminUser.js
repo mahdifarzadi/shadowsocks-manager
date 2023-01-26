@@ -149,7 +149,7 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
     $scope.deleteUserAccount = (accountId) => {
       confirmDialog.show({
         text: '将此账号移除出该用户的列表？',
-        cancel: '取消',
+        cancel: 'cancel',
         confirm: '移除',
         error: '移除账号失败',
         fn: function () { return $http.delete(`/api/admin/user/${ userId }/${ accountId }`); },
@@ -162,8 +162,8 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
     $scope.deleteMacAccount = accountId => {
       confirmDialog.show({
         text: '删除该账号？',
-        cancel: '取消',
-        confirm: '删除',
+        cancel: 'cancel',
+        confirm: 'delete',
         error: '删除账号失败',
         fn: function () { return $http.delete('/api/admin/account/mac/', {
           params: { id: accountId },
@@ -195,8 +195,8 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
     $scope.deleteUser = () => {
       confirmDialog.show({
         text: '真的要删除该用户吗？',
-        cancel: '取消',
-        confirm: '删除',
+        cancel: 'cancel',
+        confirm: 'delete',
         error: '删除用户失败',
         fn: function () {
           return $http.delete(`/api/admin/user/${ userId }`);
@@ -226,8 +226,8 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
     $scope.deleteRefUser = refUserId => {
       confirmDialog.show({
         text: '删除该邀请关系？',
-        cancel: '取消',
-        confirm: '删除',
+        cancel: 'cancel',
+        confirm: 'delete',
         error: '删除邀请关系失败',
         fn: function () { return $http.delete(`/api/admin/ref/${ userId }/${ refUserId }`); },
       }).then(() => {
@@ -239,8 +239,8 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
     $scope.deleteRefCode = code => {
       confirmDialog.show({
         text: '删除该邀请码？\n注意，邀请码对应的邀请关系也会一并删除',
-        cancel: '取消',
-        confirm: '删除',
+        cancel: 'cancel',
+        confirm: 'delete',
         error: '删除邀请码失败',
         fn: function () { return $http.delete(`/api/admin/ref/${ code }`); },
       }).then(() => {
@@ -300,8 +300,8 @@ app.controller('AdminUserController', ['$scope', '$state', '$stateParams', 'admi
     $scope.deleteUser = () => {
       confirmDialog.show({
         text: '真的要删除该用户吗？',
-        cancel: '取消',
-        confirm: '删除',
+        cancel: 'cancel',
+        confirm: 'delete',
         error: '删除用户失败',
         fn: function () {
           return $http.delete(`/api/admin/user/${ userId }`);

@@ -49,7 +49,7 @@ app.controller('AdminGiftCardController', ['$scope', '$http', 'addGiftCardBatchD
     $scope.revoke = () => {
       confirmDialog.show({
         text: '确实要召回这些卡片吗？该操作不可撤销。',
-        cancel: '取消',
+        cancel: 'cancel',
         confirm: '召回',
         error: '召回失败',
         fn: () => {

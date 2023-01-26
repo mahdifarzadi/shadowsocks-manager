@@ -1,5 +1,5 @@
 module.exports = {
-  '首页': 'Home',
+  'Home': 'Home',
   '登录': 'Sign in',
   '注册': 'Sign up',
   '邮箱': 'Email',
@@ -21,7 +21,7 @@ module.exports = {
   '验证码已发至邮箱': 'A verification code has been sent to your email address',
   '用户注册成功':'Successfully registered.',
   'confirm': 'OK',
-  '取消': 'Cancel',
+  'cancel': 'Cancel',
   '关闭': 'Close',
   '下一步': 'Next',
   '无效': 'not valid',
@@ -74,6 +74,7 @@ module.exports = {
   '时': 'Hour',
   '天': 'Day',
   '周': 'Week',
+  '月': 'Month',
   '支付宝扫码支付': 'Alipay QR code Payment',
   '手机请点击二维码付款': 'On your smartphone, please click the QR code to pay',
   'PayPal支付请点击下面按钮': 'For PayPal users, please click the following button',
@@ -197,7 +198,7 @@ module.exports = {
   '插件参数': 'Plugin Parameters',
   '允许购买多个账号': 'Multiple account purchases allowed',
 
-  '取消': 'Cancel',
+  'cancel': 'Cancel',
   '删除': 'Delete',
   '确认': 'Confirm',
   'confirm': 'Confirm',

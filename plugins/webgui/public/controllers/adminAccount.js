@@ -461,9 +461,9 @@ app.controller('AdminAccountController', ['$scope', '$state', '$mdMedia', '$http
     $scope.typeList = [
       {key: '不限量', value: 1},
       {key: '月', value: 3},
-      {key: '周', value: 2},
-      {key: '天', value: 4},
-      {key: '小时', value: 5},
+      {key: 'week', value: 2},
+      {key: 'Day', value: 4},
+      {key: 'Hour', value: 5},
     ];
     $scope.timeLimit = {
       '2': 7 * 24 * 3600000,
@@ -593,16 +593,16 @@ app.controller('AdminAccountController', ['$scope', '$state', '$mdMedia', '$http
 ])
 .controller('AdminEditAccountController', ['$scope', '$state', '$stateParams', '$http', '$mdBottomSheet', 'confirmDialog', 'alertDialog', '$filter', '$q', 'setAccountServerDialog',
   ($scope, $state, $stateParams, $http, $mdBottomSheet, confirmDialog, alertDialog, $filter, $q, setAccountServerDialog) => {
-    $scope.setTitle('编辑账号');
+    $scope.setTitle('edit account');
     $scope.setMenuButton('arrow_back', function() {
       $state.go('admin.accountPage', { accountId: $stateParams.accountId });
     });
     $scope.typeList = [
       {key: '不限量', value: 1},
       {key: '月', value: 3},
-      {key: '周', value: 2},
-      {key: '天', value: 4},
-      {key: '小时', value: 5},
+      {key: 'week', value: 2},
+      {key: 'Day', value: 4},
+      {key: 'Hour', value: 5},
     ];
     $scope.timeLimit = {
       '2': 7 * 24 * 3600000,
@@ -749,8 +749,8 @@ app.controller('AdminAccountController', ['$scope', '$state', '$mdMedia', '$http
     $scope.deleteAccount = () => {
       confirmDialog.show({
         text: '真的要删除账号吗？',
-        cancel: '取消',
-        confirm: '删除',
+        cancel: 'cancel',
+        confirm: 'delete',
         error: '删除账号失败',
         fn: function () { return $http.delete('/api/admin/account/' + accountId); },
       }).then(() => {

@@ -36,7 +36,7 @@ app
       }
     };
     $scope.menus = [{
-      name: '首页',
+      name: 'Home',
       icon: 'home',
       click: 'user.index'
     }, {
@@ -173,7 +173,7 @@ app
 ])
 .controller('UserIndexController', ['$scope', '$state', 'userApi', 'markdownDialog', '$sessionStorage', 'autopopDialog',
   ($scope, $state, userApi, markdownDialog, $sessionStorage, autopopDialog) => {
-    $scope.setTitle('首页');
+    $scope.setTitle('Home');
     $scope.notices = [];
     $scope.otherNotices = {};
     userApi.getNotice().then(success => {

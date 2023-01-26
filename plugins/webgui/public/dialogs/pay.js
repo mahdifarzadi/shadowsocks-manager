@@ -8,9 +8,9 @@ app.factory('payDialog' , [ '$mdDialog', '$interval', '$timeout', '$http', '$loc
     time: [{
       type: 'hour', name: '一小时'
     }, {
-      type: 'day', name: '一天'
+      type: 'day', name: '1 day'
     }, {
-      type: 'week', name: '一周'
+      type: 'week', name: '1 week'
     }, {
       type: 'month', name: '一个月'
     }, {

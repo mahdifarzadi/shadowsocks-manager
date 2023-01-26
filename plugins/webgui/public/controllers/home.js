@@ -25,15 +25,15 @@ app
         }
       };
       $scope.menus = [{
-        name: '首页',
+        name: 'Home',
         icon: 'home',
         click: 'home.index'
       }, {
-        name: '登录',
+        name: 'Sign in',
         icon: 'cloud',
         click: 'home.login'
       }, {
-        name: '注册',
+        name: 'Sign up',
         icon: 'face',
         click: 'home.signup'
       }];

@@ -25,9 +25,9 @@ app.filter('order', function () {
   // TODO: 将此处的类型和其他地方的类型代码全部集中到一处
   return function (type) {
     const cardType = {
-      5: '小时',
+      5: 'Hour',
       4: '日',
-      2: '周',
+      2: 'week',
       3: '月',
       6: '季度',
       7: '年',

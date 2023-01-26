@@ -594,7 +594,7 @@ const setAccountLimit = async (userId, accountId, orderId) => {
 };
 
 const addAccountTime = async (userId, accountId, accountType, accountPeriod = 1) => {
-  // type: 2 周 ,3 月, 4 天, 5 小时
+  // type: 2 week ,3 月, 4 Day, 5 Hour
   const getTimeByType = type => {
     const time = {
       '2': 7 * 24 * 60 * 60 * 1000,
