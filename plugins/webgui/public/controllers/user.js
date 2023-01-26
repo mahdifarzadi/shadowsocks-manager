@@ -540,7 +540,7 @@ app
 ])
 .controller('UserMacAddressController', ['$scope', '$state', '$http', 'addMacAccountDialog',
   ($scope, $state, $http, addMacAccountDialog) => {
-    $scope.setTitle('MAC地址');
+    $scope.setTitle('MACaddress');
     $scope.setMenuButton('arrow_back', 'user.settings');
     const getMacAccount = () => {
       $http.get('/api/user/account/mac').then(success => {

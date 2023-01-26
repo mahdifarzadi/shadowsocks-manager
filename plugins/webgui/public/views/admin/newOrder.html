@@ -17,7 +17,7 @@
                     </md-select>
                 </div>
                 <md-input-container class="md-block">
-                    <label translate>名称</label>
+                    <label translate>name</label>
                     <input type="text" required name="name" ng-model="order.name">
                     <div ng-messages="orderForm.name.$error">
                         <div ng-message="required">名称不能为空</div>
@@ -28,7 +28,7 @@
                     <input type="text" name="shortComment" ng-model="order.shortComment">
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label translate>备注</label>
+                    <label translate>Remarks</label>
                     <textarea ng-model="order.comment" rows="3" md-no-autogrow md-select-on-focus></textarea>
                 </md-input-container>
                 <div layout="row" layout-align="space-between start" ng-show="order.orderType === 'normal'">
@@ -41,7 +41,7 @@
                         </div>
                     </md-input-container>
                     <md-input-container class="md-block" flex="45">
-                        <label translate>周期</label>
+                        <label translate>period</label>
                         <input type="number" name="cycle" ng-model="order.cycle" style="margin: 20px 0 20px 0;">
                     </md-input-container>
                 </div>

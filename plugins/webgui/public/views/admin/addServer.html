@@ -13,18 +13,18 @@
                     </md-select>
                 </div>
                 <md-input-container class="md-block">
-                    <label>名称</label>
+                    <label>name</label>
                     <input type="text" required name="name" ng-model="server.name">
                     <div ng-messages="serverForm.name.$error">
                         <div ng-message="required">名称不能为空</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>备注</label>
+                    <label>Remarks</label>
                     <input type="text" required name="comment" ng-model="server.comment">
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label>地址</label>
+                    <label>address</label>
                     <input type="text" required name="address" ng-model="server.address">
                     <div ng-messages="serverForm.address.$error">
                         <div ng-message="required">地址不能为空</div>
@@ -61,7 +61,7 @@
                     <input type="number" required name="tjPort" ng-model="server.tjPort">
                 </md-input-container>
                 <div ng-if="server.type === 'Shadowsocks'" class="md-block" layout="column" layout-align="center stretch" style="margin-bottom: 25px;">
-                    <label flex style="color: rgba(0,0,0, 0.54); font-size: 13px;">加密方式</label>
+                    <label flex style="color: rgba(0,0,0, 0.54); font-size: 13px;">Encryption</label>
                     <md-autocomplete flex
                         md-selected-item="server.method"
                         md-items="method in methods"
@@ -70,7 +70,7 @@
                         md-search-text="methodSearch"
                         md-search-text-change="setMethod()"
                         md-require-match="false"
-                        placeholder="请填写加密方式">
+                        placeholder="Please fill in the encryption method">
                         <md-item-template>
                             <span md-highlight-text="methodSearch" md-highlight-flags="^i">{{method}}</span>
                         </md-item-template>
@@ -84,7 +84,7 @@
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block" ng-if="server.type === 'Shadowsocks'">
-                    <label>端口偏移</label>
+                    <label>port offset</label>
                     <input type="number" required name="shift" ng-model="server.shift">
                     <div ng-messages="serverForm.shift.$error">
                         <div ng-message="required">端口偏移量不能为空</div>
@@ -95,13 +95,13 @@
                     <input type="text" name="pluginOptions" ng-model="server.pluginOptions">
                 </md-input-container>
                 <div style="width: 100%;">
-                    <md-chips ng-model="tags" placeholder="请输入标签">
+                    <md-chips ng-model="tags" placeholder="Please enter a tag">
                         <md-autocomplete
                             md-selected-item="tagsAutoComplete.selectedItem"
                             md-search-text="tagsAutoComplete.searchText"
                             md-items="item in tagsAutoComplete.querySearch(tagsAutoComplete.searchText)"
                             md-item-text="item"
-                            placeholder="请输入标签"
+                            placeholder="Please enter a tag"
                         >
                           <span md-highlight-text="tagsAutoComplete.searchText">{{item}}</span>
                         </md-autocomplete>

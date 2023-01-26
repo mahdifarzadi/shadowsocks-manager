@@ -79,7 +79,7 @@
     </md-card>
 </div>
 <div layout="row" layout-wrap>
-    <div flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="(key, value) in currentPorts" ng-if="$index < visiblePortNumber" ng-show="matchPort(value, menuSearch.text)">
+    <div  ng-repeat="(key, value) in currentPorts" ng-if="$index < visiblePortNumber" ng-show="matchPort(value, menuSearch.text)">
         <md-card md-colors="accountColor(value)">
             <md-card-content style="padding-top: 5px; padding-bottom: 5px;">
                 <div layout="row" layout-align="space-between center">

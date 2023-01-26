@@ -43,7 +43,7 @@
                             <input type="number" required name="flow" ng-model="accountData.accountForNewUser.flow">
                         </md-input-container>
                         <md-input-container class="md-block">
-                            <label>周期</label>
+                            <label>period</label>
                             <input type="number" required name="limit" ng-model="accountData.accountForNewUser.limit">
                         </md-input-container>
                     </form>
@@ -80,7 +80,7 @@
             <md-list ng-show="accountData.accountForNewUser.isEnable && !accountData.accountForNewUser.fromOrder">
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="75" translate>自定义新用户可用服务器</div>
+                        <div flex="75" translate>Customize new user available servers</div>
                         <div flex layout="row" layout-align="end center"><md-switch ng-model="setServerForNewUser" aria-label="serverForNewUser"></md-switch></div>
                     </div>
                 </md-list-item>
@@ -103,7 +103,7 @@
             <md-list>
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="50" translate>新用户分组</div>
+                        <div flex="50" translate>new user group</div>
                         <div flex="50" layout="row" layout-align="end center">
                             <md-select ng-model="accountData.defaultGroup" aria-label="defaultGroup">
                                 <md-option ng-repeat="group in groups" ng-value="group.id">{{ group.name }}</md-option>
@@ -125,7 +125,7 @@
             <md-list>
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="100" translate>新端口号分配范围</div>
+                        <div flex="100" translate>New port number allocation range</div>
                     </div>
                 </md-list-item>
                 <md-list-item layout="row">
@@ -133,11 +133,11 @@
                     <div flex>
                         <form name="portForm" layout="column" layout-gt-sm="row">
                             <md-input-container class="md-block" flex-gt-sm="50">
-                                <label>起始端口</label>
+                                <label>start port</label>
                                 <input type="number" required name="startPort" ng-model="accountData.port.start">
                             </md-input-container>
                             <md-input-container class="md-block" flex-gt-sm="50">
-                                <label>结束端口</label>
+                                <label>end port</label>
                                 <input type="number" required name="endPort" ng-model="accountData.port.end">
                             </md-input-container>
                         </form>
@@ -158,7 +158,7 @@
             <md-list>
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="75" translate>开启订阅功能</div>
+                        <div flex="75" translate>Turn on the subscription function</div>
                         <div flex layout="row" layout-align="end center"><md-switch ng-model="accountData.subscribe" aria-label="subscribe"></md-switch></div>
                     </div>
                 </md-list-item>
@@ -167,7 +167,7 @@
             <md-list>
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="75" translate>开启MAC地址订阅功能</div>
+                        <div flex="75" translate>Enable the MAC address subscription function</div>
                         <div flex layout="row" layout-align="end center"><md-switch ng-model="accountData.macAccount" aria-label="macAccount"></md-switch></div>
                     </div>
                 </md-list-item>
@@ -176,7 +176,7 @@
             <md-list>
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="75" translate>精简模式</div>
+                        <div flex="75" translate>lite mode</div>
                         <div flex layout="row" layout-align="end center"><md-switch ng-model="accountData.simple" aria-label="simple"></md-switch></div>
                     </div>
                 </md-list-item>
@@ -185,7 +185,7 @@
             <md-list>
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="75" translate>显示用户不可用的服务器</div>
+                        <div flex="75" translate>Show servers that are not available to the user</div>
                         <div flex layout="row" layout-align="end center"><md-switch ng-model="accountData.showAllServer" aria-label="showAllServer"></md-switch></div>
                     </div>
                 </md-list-item>
@@ -194,7 +194,7 @@
             <md-list>
                 <md-list-item>
                     <div class="md-list-item-text" style="width: 100%;" layout="row" layout-align="space-between center">
-                        <div flex="75" translate>显示账号类型</div>
+                        <div flex="75" translate>show account type</div>
                         <div flex layout="row" layout-align="end center"><md-switch ng-model="accountData.showAccountOrderName" aria-label="showAccountOrderName"></md-switch></div>
                     </div>
                 </md-list-item>

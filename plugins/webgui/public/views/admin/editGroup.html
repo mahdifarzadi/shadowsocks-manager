@@ -6,14 +6,14 @@
             <div style="height: 30px;"></div>
             <form name="groupForm">
                 <md-input-container class="md-block">
-                    <label translate>名称</label>
+                    <label translate>name</label>
                     <input type="text" required name="name" ng-model="group.name">
                     <div ng-messages="groupForm.name.$error">
                         <div ng-message="required" translate>不能名称为空</div>
                     </div>
                 </md-input-container>
                 <md-input-container class="md-block">
-                    <label translate>备注</label>
+                    <label translate>Remarks</label>
                     <input type="text" required name="comment" ng-model="group.comment">
                     <div ng-messages="groupForm.comment.$error">
                         <div ng-message="required" translate>备注不能为空</div>

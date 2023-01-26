@@ -1,6 +1,6 @@
 <div layout="row" layout-wrap>
-    <div ng-if="!servers.length" class="zero-element">没有服务器<br /><span class="zero-element-link" ng-if="id === 1" ng-click="addServer()">点击这里添加</span></div>
-    <div flex-xs="100" flex-sm="50" flex-md="33" flex-gt-md="25" ng-repeat="server in servers track by server.id" ng-show="showServer(server.name)">
+    <div ng-if="!servers.length" class="zero-element">no server<br /><span class="zero-element-link" ng-if="id === 1" ng-click="addServer()">click here to add</span></div>
+    <div  ng-repeat="server in servers track by server.id" ng-show="showServer(server.name)">
         <md-card class="hover-mouse hover-flow" ng-click="id === 1 && toServerPage(server.id)" md-colors="{{serverColor(server)}}">
             <md-card-header>
                 <md-card-header-text layout="row" layout-align="space-between center">
@@ -8,7 +8,7 @@
                         <span class="md-title" layout="row" layout-align="space-between center">
                             <span>
                                 {{server.name}}
-                                <span ng-show="server.status === -1" style="color: #a33;">离线</span>
+                                <span ng-show="server.status === -1" style="color: #a33;">offline</span>
                                 <span ng-show="server.status !== -1 && !server.isGfw" style="color: #3a3;">{{server.status}}</span>
                                 <span ng-show="server.status !== -1 && server.isGfw" style="color: #a33;">{{server.status}}</span>
                             </span>
@@ -38,15 +38,15 @@
             </md-card-actions>
             <md-card-content layout="column" ng-if="serverChart.showFlow">
                 <div layout="row" layout-align="space-between center">
-                    <div translate>本日流量：</div>
+                    <div translate>Today flow rate:</div>
                     <div>{{server.flow.today | flow}}</div>
                 </div>
                 <div layout="row" layout-align="space-between center">
-                    <div translate>本周流量：</div>
+                    <div translate>week flow rate:</div>
                     <div>{{server.flow.week | flow}}</div>
                 </div>
                 <div layout="row" layout-align="space-between center">
-                    <div translate>本月流量：</div>
+                    <div translate>month flow rate:</div>
                     <div>{{server.flow.month | flow}}</div>
                 </div>
             </md-card-content>
