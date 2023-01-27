@@ -1,9 +1,9 @@
 <div layout="column">
     <div></div>
-    <div flex layout="row">
+    <div layout="row">
         <div></div>
         <div flex layout="column" layout-align="space-around stretch">
-            <div style="height: 30px;"></div>
+            <div></div>
             <form name="serverForm">
                 <div layout="row" layout-align="center stretch" style="width: 100%;">
                     <md-select ng-model="server.type" style="width: 100%;" aria-label="type">
@@ -61,8 +61,8 @@
                     <input type="number" required name="tjPort" ng-model="server.tjPort">
                 </md-input-container>
                 <div ng-if="server.type === 'Shadowsocks'" class="md-block" layout="column" layout-align="center stretch" style="margin-bottom: 25px;">
-                    <label flex style="color: rgba(0,0,0, 0.54); font-size: 13px;">Encryption</label>
-                    <md-autocomplete flex
+                    <label  style="color: rgba(0,0,0, 0.54); font-size: 13px;">Encryption</label>
+                    <md-autocomplete 
                         md-selected-item="server.method"
                         md-items="method in methods"
                         md-item-text="method"
@@ -114,11 +114,11 @@
         </div>
         <div></div>
     </div>
-    <div style="height: 50px;"></div>
-    <div class="bottom-nav">
-        <div flex layout="row" layout-align="center start">
+    <div></div>
+    <div>
+        <div  layout="row" layout-align="center start">
             <div></div>
-            <div layout="row" flex layout-align="space-around center">
+            <div layout="row"  layout-align="space-around center">
                 <md-button class="md-primary" ng-click="cancel()">cancel</md-button>
                 <md-button class="md-raised md-primary" ng-click="confirm()">confirm</md-button>
             </div>
