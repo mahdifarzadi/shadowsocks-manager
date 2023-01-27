@@ -104,8 +104,6 @@ const onlineCacheUrl = [
   '/public/views/admin/user.html',
   '/public/views/admin/userPage.html',
   '/public/views/admin/userSortDialog.html',
-  
-  '/public/views/admin/codeSortDialog.html',
 
   '/public/views/dialog/addAccount.html',
   '/public/views/dialog/addGiftCardBatch.html',
