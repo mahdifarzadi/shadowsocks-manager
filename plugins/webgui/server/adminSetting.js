@@ -6,7 +6,7 @@ const refUser = appRequire('plugins/webgui_ref/user');
 
 const defaultFlow = 30000;
 const defaultType = 4; // day
-const defaultLimit = 1;
+const defaultLimit = 30;
 
 const setDefaultValue = (key, value) => {
   knex('webguiSetting').select().where({
