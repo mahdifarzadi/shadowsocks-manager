@@ -36,7 +36,8 @@ setDefaultValue('account', { // default trafic
     start: 50000,
     end: 60000,
     random: false,
-  }
+  },
+  subscribe: false
 });
 setDefaultValue('base', {
   title: 'Shadowsocks-Manager',
