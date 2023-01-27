@@ -159,14 +159,14 @@ const createUser = async (email, password, from = '') => {
 exports.signup = async (req, res) => {
   try {
     req.checkBody('email', 'Invalid email').isEmail();
-    // req.checkBody('code', 'Invalid code').notEmpty();
+    req.checkBody('code', 'Invalid code').notEmpty();
     req.checkBody('password', 'Invalid password').notEmpty();
     let type = 'normal';
     const validation = await req.getValidationResult();
     if(!validation.isEmpty()) { throw(validation.array()); }
     const email = req.body.email.toString().toLowerCase();
-    // const code = req.body.code;
-    // await emailPlugin.checkCode(email, code);
+    const code = req.body.code;
+    await emailPlugin.checkCode(email, code);
     await knex('user').count('id AS count').then(success => {
       if(!success[0].count) {
         type = 'admin';

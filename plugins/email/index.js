@@ -161,28 +161,34 @@ const sendMail = async (to, subject, text, options = {}) => {
 };
 
 const sendCode = async (to, subject = 'subject', text, options = {}) => {
-  const sendEmailTime = 10;
+  // const sendEmailTime = 10;
   try {
-    const findEmail = await knex('email').select(['remark']).where({
-      to,
-      type: 'code',
-    }).whereBetween('time', [Date.now() - sendEmailTime * 60 * 1000, Date.now()]);
-    if(findEmail.length > 0) {
-      return findEmail[0].remark;
-    }
+    // const findEmail = await knex('email').select(['remark']).where({
+    //   to,
+    //   type: 'code',
+    // }).whereBetween('time', [Date.now() - sendEmailTime * 60 * 1000, Date.now()]);
+    // if(findEmail.length > 0) {
+    //   return findEmail[0].remark;
+    // }
     const code = Math.random().toString().substr(2, 6);
     if(text.indexOf('${code}') >= 0) {
       text = text.replace(/\$\{code\}/g, '[ ' + code + ' ]');
     } else {
       text += '\n[ ' + code + ' ]';
     }
-    await sendMail(to, subject, text, {
-      type: 'code',
-      remark: code,
-      ip: options.ip,
-      session: options.session,
-      telegramId: options.telegramId,
+    await knex('email').insert({
+      code: code,
+      email: to,
+      used: false,
+      time: Date.now(),
     });
+    // await sendMail(to, subject, text, {
+    //   type: 'code',
+    //   remark: code,
+    //   ip: options.ip,
+    //   session: options.session,
+    //   telegramId: options.telegramId,
+    // });
     logger.info(`[${ to }] Send code: ${ code }`);
     return code;
   } catch (err) {
@@ -193,13 +199,14 @@ const sendCode = async (to, subject = 'subject', text, options = {}) => {
 
 const checkCode = async (email, code) => {
   logger.info(`[${ email }] Check code: ${ code }`);
-  const sendEmailTime = 10;
+  // check code existence
   try {
-    const findEmail = await knex('email').select(['remark']).where({
-      to: email,
-      remark: code,
-      type: 'code',
-    }).whereBetween('time', [Date.now() - sendEmailTime * 60 * 1000, Date.now()]);
+    const findEmail = await knex('email').select(['code']).where({
+      // to: email,
+      code: code,
+      used: false,
+    });
+    console.log(findEmail, code);
     if(findEmail.length === 0) {
       throw new Error('Email or code not found');
     }
@@ -207,6 +214,9 @@ const checkCode = async (email, code) => {
     logger.error(`Check code fail: ${ err }`);
     return Promise.reject(err);
   }
+  // update code
+  const result = await knex('email').update({ used: true, email: email, time: Date.now() }).where({ code: code });
+  logger.info(`[${ email }] Update code: ${ code }`);
 };
 
 const checkCodeFromTelegram = async (telegramId, code) => {

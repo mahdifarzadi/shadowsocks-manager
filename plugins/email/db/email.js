@@ -13,14 +13,15 @@ const createTable = async () => {
     return;
   }
   return knex.schema.createTable(tableName, function(table) {
-    table.string('to');
-    table.string('subject');
-    table.string('text', 16384);
-    table.string('type');
-    table.string('remark');
-    table.string('ip');
-    table.string('session');
-    table.string('telegramId');
+    // table.string('to');
+    // table.string('subject');
+    // table.string('text', 16384);
+    // table.string('type');
+    table.string('code');
+    table.string('email');
+    table.boolean('used').notNullable().defaultTo(false);
+    // table.string('session');
+    // table.string('telegramId');
     table.bigInteger('time');
   });
 };
