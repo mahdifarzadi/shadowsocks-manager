@@ -238,7 +238,92 @@ const checkCodeFromTelegram = async (telegramId, code) => {
   }
 };
 
+const getCodes = async (used) => {
+  const codes = await knex('email').select();
+  return codes;
+};
+
+const getCodeAndPaging = async (opt = {}) => {
+  console.log(opt.sort);
+  console.log(opt.type);
+  const search = opt.search || '';
+  const filter = opt.filter || 'all';
+  const sort = opt.sort || 'time_asc';
+  const page = opt.page || 1;
+  const pageSize = opt.pageSize || 20;
+  const type = opt.type || ['true', 'false'];
+  // const group = opt.hasOwnProperty('group') ? opt.group : -1;
+
+  const used = type.map(s => {
+    if (s == 'true') return true;
+    if (s == 'false') return false;
+    return null;
+  });
+  console.log({type, used});
+
+
+  let count = knex('email').select()
+  // .where('id', '>', 1)
+  .whereIn('used', used);
+
+  // const hasAlipay = !!config.plugins.alipay && !!config.plugins.alipay.use;
+  const columns = [
+    'email.code as code',
+    'email.email as email',
+    'email.time as time',
+    'email.used as used',
+  ];
+  // if(hasAlipay) {
+  //   columns.push('alipay.orderId as alipay');
+  // }
+
+  let codes = knex('email').select();
+  // .leftJoin('user', 'code.email', 'user.email');
+
+  // if(hasAlipay) {
+  //   users.leftJoin('alipay', 'user.id', 'alipay.user');
+  // }
+
+  codes = codes
+  // .where('user.id', '>', 1)
+  .whereIn('email.used', used)
+  .groupBy('email.code');
+
+  // if(group >= 0) {
+  //   count = count.where({ 'user.group': group });
+  //   users = users.where({ 'user.group': group });
+  // }
+  if(search) {
+    count = count.where('code', 'like', `%${ search }%`).orWhere('email', 'like', `%${ search }%`);
+    codes = users.where('code', 'like', `%${ search }%`).orWhere('email', 'like', `%${ search }%`);
+  }
+
+  count = await count.count('code as count').then(success => success[0].count);
+  codes = await codes.orderBy(sort.split('_')[0], sort.split('_')[1]).limit(pageSize).offset((page - 1) * pageSize);
+  const maxPage = Math.ceil(count / pageSize);
+  return {
+    total: count,
+    page,
+    maxPage,
+    pageSize,
+    codes,
+  };
+};
+
+const getOneCode = async (codeCode) => {
+  const code = await knex('email').select().where({
+    code: codeCode,
+  });
+  if(!code.length) {
+    return Promise.reject('Code not found');
+  }
+  return code[0];
+};
+
 exports.checkCodeFromTelegram = checkCodeFromTelegram;
 exports.checkCode = checkCode;
 exports.sendCode = sendCode;
 exports.sendMail = sendMail;
+exports.getCodes = getCodes;
+exports.getOne = getOneCode;
+exports.getCodeAndPaging = getCodeAndPaging;

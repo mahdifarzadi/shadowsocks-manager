@@ -22,6 +22,26 @@ app.factory('adminApi', ['$http', '$q', 'moment', 'preload', '$timeout', 'config
       type,
     } }).then(success => success.data);
   };
+  const getCode = (opt = {}) => {
+    const search = opt.search || '';
+    // const filter = opt.filter || 'all';
+    const sort = opt.sort || 'id_desc';
+    const page = opt.page || 1;
+    const pageSize = opt.pageSize || 20;
+    const group = opt.hasOwnProperty('group') ? opt.group : -1;
+    const type = [];
+    for(const i in opt.type) {
+      if(opt.type[i]) { type.push(i); }
+    };
+    return $http.get('/api/admin/code', { params: {
+      search,
+      sort,
+      page,
+      pageSize,
+      group,
+      type,
+    } }).then(success => success.data);
+  };
   const getOrder = (payType, opt = {}) => {
     if(payType === 'Paypal') {
       opt.filter = opt.filter.map(m => {
@@ -191,6 +211,33 @@ app.factory('adminApi', ['$http', '$q', 'moment', 'preload', '$timeout', 'config
     });
   };
 
+  const getCodeData = codeCode => {
+    const promises = [
+      $http.get('/api/admin/code/' + codeCode),
+      // $http.get('/api/admin/alipay/' + userId),
+      // $http.get('/api/admin/paypal/' + userId),
+      // $http.get('/api/admin/refOrder/' + userId),
+      // config.giftcard ? $http.get('/api/admin/giftcard/' + userId) : $q.resolve({ data: [] }),
+      // $http.get('/api/admin/server'),
+      // $http.get('/api/admin/account/mac', { params: { userId } }),
+      // $http.get('/api/admin/ref/user/' + userId),
+      // $http.get('/api/admin/ref/code/' + userId),
+    ];
+    return $q.all(promises).then(success => {
+      return {
+        code: success[0].data,
+        // alipayOrders: success[1].data,
+        // paypalOrders: success[2].data,
+        // refOrders: success[3].data,
+        // giftCardOrders: success[4].data,
+        // server: success[5].data,
+        // macAccount: success[6].data,
+        // refUsers: success[7].data,
+        // refCodes: success[8].data,
+      };
+    });
+  };
+
   const getAdminData = userId => {
     return $http.get('/api/admin/admin/' + userId).then(success => {
       return {
@@ -318,6 +365,7 @@ app.factory('adminApi', ['$http', '$q', 'moment', 'preload', '$timeout', 'config
 
   return {
     getUser,
+    getCode,
     getOrder,
     getCsvOrder,
     getServer,
@@ -329,6 +377,7 @@ app.factory('adminApi', ['$http', '$q', 'moment', 'preload', '$timeout', 'config
     getIndexInfo,
     getServerPortData,
     getUserData,
+    getCodeData,
     getAdminData,
     getChartData,
     getAccountChartData,

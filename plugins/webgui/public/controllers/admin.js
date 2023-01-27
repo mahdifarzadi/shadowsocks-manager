@@ -39,6 +39,10 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
       icon: 'people',
       click: 'admin.user',
     }, {
+      name: 'Codes',
+      icon: 'code_circle',
+      click: 'admin.code',
+    }, {
       name: '账号',
       icon: 'account_circle',
       click: 'admin.account',

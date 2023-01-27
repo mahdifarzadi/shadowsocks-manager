@@ -7,6 +7,7 @@ const home = appRequire('plugins/webgui/server/home');
 const user = appRequire('plugins/webgui/server/user');
 const admin = appRequire('plugins/webgui/server/admin');
 const adminUser = appRequire('plugins/webgui/server/adminUser');
+const adminCode = appRequire('plugins/webgui/server/adminCode');
 const adminServer = appRequire('plugins/webgui/server/adminServer');
 const adminFlow = appRequire('plugins/webgui/server/adminFlow');
 const adminSetting = appRequire('plugins/webgui/server/adminSetting');
@@ -126,6 +127,10 @@ app.delete('/api/admin/user/:userId(\\d+)', isAdmin, admin.deleteUser);
 app.delete('/api/admin/user/:userId(\\d+)/:accountId(\\d+)', isAdmin, admin.deleteUserAccount);
 app.get('/api/admin/user/:accountId(\\d+)/lastConnect', isAdmin, admin.getUserPortLastConnect);
 app.put('/api/admin/user/:userId(\\d+)/comment', isAdmin, isSuperAdmin, adminUser.editUserComment);
+
+app.get('/api/admin/code', isAdmin, adminCode.getCodes);
+app.get('/api/admin/code/:codeCode(\\d+)', isAdmin, adminCode.getOneCode);
+app.post('/api/admin/code/add', isAdmin, adminCode.addCode);
 
 app.get('/api/admin/alipay', isAdmin, admin.getOrders);
 app.get('/api/admin/alipay/csv', isAdmin, isSuperAdmin, admin.getCsvOrders);
