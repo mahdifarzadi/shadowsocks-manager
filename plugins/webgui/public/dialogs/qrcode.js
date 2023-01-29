@@ -17,7 +17,7 @@ app.factory('qrcodeDialog', [ '$mdDialog', '$mdToast', ($mdDialog, $mdToast) => 
   const toast = (delay = 3000) => {
     $mdToast.show(
       $mdToast.simple()
-        .textContent('链接已复制')
+        .textContent('link copied')
         .position('top right')
         .hideDelay(delay)
     );
@@ -53,7 +53,7 @@ app.factory('qrcodeDialog', [ '$mdDialog', '$mdToast', ($mdDialog, $mdToast) => 
       return dialogPromise;
     }
     publicInfo.serverName = serverName;
-    publicInfo.ssAddress = ssAddress;
+    publicInfo.ssAddress = ssAddress+'?plugin=v2ray-plugin';
     dialogPromise = $mdDialog.show(dialog);
     return dialogPromise;
   };
