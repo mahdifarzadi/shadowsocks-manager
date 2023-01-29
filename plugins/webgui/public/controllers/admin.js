@@ -249,7 +249,7 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
   }
 ])
 .controller('AdminRecentSignupController', ['$scope', '$http', '$state', ($scope, $http, $state) => {
-  $scope.setTitle('最新注册用户');
+  $scope.setTitle('Newest Registered Users');
   $scope.setMenuButton('arrow_back', 'admin.index');
   $scope.recentUsers = null;
   $http.get('/api/admin/user/recentSignup?number=100').then(success => {
@@ -260,7 +260,7 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
   };
 }])
 .controller('AdminRecentLoginController', ['$scope', '$http', '$state', ($scope, $http, $state) => {
-  $scope.setTitle('最近登录用户');
+  $scope.setTitle('Recently logged in user');
   $scope.setMenuButton('arrow_back', 'admin.index');
   $scope.recentUsers = null;
   $http.get('/api/admin/user/recentLogin?number=-1').then(success => {
@@ -271,7 +271,7 @@ app.controller('AdminController', ['$scope', '$mdMedia', '$mdSidenav', '$state',
   };
 }])
 .controller('AdminTopFlowController', ['$scope', '$http', '$state', ($scope, $http, $state) => {
-  $scope.setTitle('今日流量排行');
+  $scope.setTitle('Todays traffic ranking');
   $scope.setMenuButton('arrow_back', 'admin.index');
   $scope.topUsers = null;
   $scope.allFlow = 0;

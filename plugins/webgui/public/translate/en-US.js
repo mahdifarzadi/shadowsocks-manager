@@ -80,7 +80,7 @@ module.exports = {
   'PayPal支付请点击下面按钮': 'For PayPal users, please click the following button',
 
   '最新注册用户': 'Recent Registrations',
-  '最近登录用户': 'Recent Logins',
+  'Recently logged in user': 'Recent Logins',
   '支付宝订单': 'Alipay Orders',
   'PayPal订单': 'PayPal Orders',
   '订单号：': 'Order No.:',
